@@ -1,0 +1,3 @@
+- [ ] Paramaters to chose the count of negative set
+- [ ] Paramaters to clean intermediate files
+- [ ] Cross validation for training different models

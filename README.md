@@ -1,5 +1,7 @@
 # eQTac
 EQTac is a method to predict the potential regulatory elements (PREs) and their target genes, based on the eQTL datasets, The only additional data was ATAC-seq or ChIP-seq peak data. 
+## Schematic 
+![](imgs\示意图-github展示.png)
 ## Dependence
 ### Python packages
 ```
@@ -17,7 +19,17 @@ bedtools >= v2.30.0
 R >= 3.6.1
     r-gkmSVM >= 0.8.0
 ```
-## Installation
+## Installation & test example
+```
+# installation
+pip install eQTac 
+
+# test examples
+git clone https://github.com/JFF1594032292/eQTac.git # just for test
+cd eQTac/Utilities_pipeline
+nohup sh example_All_pipeline.sh &
+```
+Then it will generate an `output_eQTac` folder, which contained results file `test.geno.vcf.gz.PRE_score.eQTac_result.FDR.txt`. (example takes 3~5min)
 
 ## Input data
 1. Data used in model training:
@@ -28,9 +40,9 @@ R >= 3.6.1
     1. **PRE**
 ## Usage pattern
 We provided three level patterns: (1) pipeline level. (2) part level. (3) function level.
-### Pipeline level pattern
+### Pipeline-level pattern
 For the function level pattern, we provide a script: Part-All-eQTac_pipeline.py.
-It can be used as follow:
+It can be used as `Utilities_pipeline/example_All_pipeline.sh`:
 ```
 python Part-All-eQTac_pipeline.py \
 	-p test_data/test.positive.bed \
@@ -44,8 +56,15 @@ python Part-All-eQTac_pipeline.py \
 	-o output_eQTac \
 	-t 3 -l 10 -k 6 -c 10 -g 2 -e 0.01
 ```
-### Part level pattern
+### Part-level pattern
 For the function level pattern, we provide four scripts:
+```
+Part-1-Train_model.py
+Part-2-Generate_PRE_fa.py
+Part-3-Predict_PRE_score.py
+Part-4-Calculate_eQTac_correlation.py
+```
+It can be used as `Utilities_pipeline/example_Part_pipeline.sh`:
 ```
 python Part-1-Train_model.py \
 	-p test_data/test.positive.bed \
@@ -75,7 +94,7 @@ python Part-4-Calculate_eQTac_correlation.py \
 	-n 50 \
 	-o output_eQTac_part
 ```
-### Function level pattern
+### Function-level pattern
 For the function level pattern, we provide a series of functions:
 ```
 from eQTac.get_nullseq import get_nullseq
@@ -88,6 +107,10 @@ from eQTac.eQTac_correlation import eQTac_correlation
 from eQTac.eQTac_permutation import eQTac_permutation
 from eQTac.control_FDR import control_FDR
 ```
-These functions can be used to construct the whole pipeline. The Part-All-eQTac_pipeline.py file used this
-
+These functions can be used to construct the whole pipeline.
+### Recomend
+We recomend to use the **pipeline-level** pattern at first to make sure that all input formats are valid. 
+Then use the **part-level** pattern to debug parameters. (e.g. training a best performance model). The first step is the most time-consuming step, we recomended to use the part-level pattern to save the SVM model `xxx.svmmodel.3_10_6_0.01.model.txt`.
+If you are familiar with this pipeline, you can directly use the `function-level` pattern to construct your own pipeline.
 ## Notes
+1. The test results is very volatile, because of the samll size of test dataset (only ~6MB length of sequences). The results will be stable with tens of thousands or more peaks used positive set.
