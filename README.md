@@ -1,7 +1,7 @@
 # eQTac
 EQTac is a method to predict the potential regulatory elements (PREs) and their target genes, based on the eQTL datasets, The only additional data was ATAC-seq or ChIP-seq peak data. 
 ## Schematic 
-![](imgs\示意图-github展示.png)
+![](imgs\Schematic.png)
 ## Dependence
 ### Python packages
 ```
