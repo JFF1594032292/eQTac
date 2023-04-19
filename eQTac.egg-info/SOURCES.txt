@@ -1,0 +1,7 @@
+README.md
+setup.py
+eQTac.egg-info/PKG-INFO
+eQTac.egg-info/SOURCES.txt
+eQTac.egg-info/dependency_links.txt
+eQTac.egg-info/requires.txt
+eQTac.egg-info/top_level.txt
