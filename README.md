@@ -113,7 +113,9 @@ from eQTac.control_FDR import control_FDR
 These functions can be used to construct the whole pipeline.
 ### Recomend
 We recomend to use the **pipeline-level** pattern at first to make sure that all input formats are valid. 
+
 Then use the **part-level** pattern to debug parameters. (e.g. training a best performance model). The first step is the most time-consuming step, we recomended to use the part-level pattern to save the SVM model `xxx.svmmodel.3_10_6_0.01.model.txt`.
+
 If you are familiar with this pipeline, you can directly use the `function-level` pattern to construct your own pipeline.
 ## Notes
 1. The test results is very volatile, because of the samll size of test dataset (only ~6MB length of sequences). The results will be stable with tens of thousands or more peaks used positive set.
