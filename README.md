@@ -14,8 +14,8 @@ scipy >= 1.8.1
 ```
 ### Other software (need manual installation)
 ```
-plink >= v1.90b6.24
-bedtools >= v2.30.0
+plink >= v1.90b6.24 (plink should in $PATH)
+bedtools >= v2.30.0 (bedtools should in $PATH)
 R >= 3.6.1
     r-gkmSVM >= 0.8.0
 ```
