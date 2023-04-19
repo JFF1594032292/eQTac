@@ -21,11 +21,11 @@ R >= 3.6.1
 
 ## Input data
 1. Data used in model training:
-    (1) **Positive sets in bed format.** It's usually the peak data from ATAC-seq or ChIP-seq, we recomended to trim peaks to the core region (e.g. summits $\pm$ 100bp). See test_data/test.positive.bed
-    (2) **Excluded sets in bed format.** It's usually the peak data from ATAC-seq or ChIP-seq, but with more relaxed thresholds (e.g. p=0.2). These region will be removed from genrated negative regions, in order to remove potential positive sequences from negative sets. See test_data/test.exclude.bed.
-    (3) **Fasta file with .fai index.** Usually the human genome sequnce file in fasta format. See test.hg19.chr17.fa.
+    1. **Positive sets in bed format.** It's usually the peak data from ATAC-seq or ChIP-seq, we recomended to trim peaks to the core region (e.g. summits $\pm$ 100bp). See test_data/test.positive.bed
+    2. **Excluded sets in bed format.** It's usually the peak data from ATAC-seq or ChIP-seq, but with more relaxed thresholds (e.g. p=0.2). These region will be removed from genrated negative regions, in order to remove potential positive sequences from negative sets. See test_data/test.exclude.bed.
+    3. **Fasta file with .fai index.** Usually the human genome sequnce file in fasta format. See test.hg19.chr17.fa.
 2. Data used in eQTac calculation.
-    (1) 
+    1. **PRE**
 ## Usage pattern
 We provided three level patterns: (1) pipeline level. (2) part level. (3) function level.
 ### Pipeline level pattern
