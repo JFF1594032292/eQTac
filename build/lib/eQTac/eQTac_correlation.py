@@ -92,6 +92,6 @@ def eQTac_correlation(PRE_scorefile, exp_file, result_file):
 
 
 if __name__ == "__main__":
-    eQTac_correlation("../output_eQTac/OA_217.TOP.processed.chr1_22.QC.imputed.synovium_filter.vcf.gz.PRE_score",
-                      "../test_data/OA_synovium_v1.exp.chr1-22.expression.qtltools.covar_residual.gz",
-                      "../output_eQTac/OA_217.TOP.processed.chr1_22.QC.imputed.synovium_filter.vcf.gz.PRE_score.eQTac_result")
+    eQTac_correlation("../output_eQTac/test.geno.vcf.gz.PRE_score",
+                      "../test_data/test.exp_residual",
+                      "../output_eQTac/test.geno.vcf.gz.PRE_score.eQTac_result")

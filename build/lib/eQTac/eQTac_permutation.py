@@ -49,6 +49,6 @@ def eQTac_permutation(PRE_scorefile, exp_file, permute_count, result_file):
 
 if __name__ == "__main__":
     eQTac_permutation(
-        "../output_eQTac/OA_217.TOP.processed.chr1_22.QC.imputed.synovium_filter.vcf.gz.PRE_score",
-        "../test_data/OA_synovium_v1.exp.chr1-22.expression.qtltools.covar_residual.gz", 100,
-        "../output_eQTac/OA_217.TOP.processed.chr1_22.QC.imputed.synovium_filter.vcf.gz.PRE_score.eQTac_result.permutation_plist")
+        "../output_eQTac/test.geno.vcf.gz.PRE_scoree",
+        "../test_data/test.exp_residual", 100,
+        "../output_eQTac/test.geno.vcf.gz.PRE_score.eQTac_result.permutation_plist")

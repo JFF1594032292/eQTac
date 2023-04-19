@@ -70,5 +70,5 @@ def filter_bkg(negraw_bed, negraw_fa, exclude_bed):
 
 
 if __name__ == '__main__':
-    filter_bkg("Merged_ATAC-all_summits.100bp.top500.negraw.bed", "Merged_ATAC-all_summits.100bp.top500.negraw.fa",
-               "../test_data/Merged_ATAC-all.p0.05_peaks.narrowPeak")
+    filter_bkg("../output_eQTac/test.positive.negraw.bed", "../output_eQTac/test.positive.negraw.fa",
+               "../test_data/test.exclude.bed")

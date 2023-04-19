@@ -62,4 +62,4 @@ def get_nullseq(pos_bed_path, out_folder):
 
 
 if __name__ == '__main__':
-    get_nullseq("../test_data/Merged_ATAC-all_summits.100bp.top500.bed", ".")
+    get_nullseq("../test_data/test.positive.bed", ".")

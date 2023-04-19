@@ -5,7 +5,7 @@ with open("README.md", "r") as f1:
 
 setuptools.setup(
     name="eQTac",
-    version="1.0.4",
+    version="1.0.5",
     author="Jiang Feng",
     author_email="1594032292@qq.com",
     description="The eQTac method.",

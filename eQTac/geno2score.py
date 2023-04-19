@@ -81,7 +81,7 @@ def geno2score(vcf_gz, pred_out, ld_info):
 
 if __name__ == "__main__":
     geno2score(
-        "../output_eQTac/OA_217.TOP.processed.chr1_22.QC.imputed.synovium_filter.vcf.gz",
-        "../output_eQTac/OA_217.TOP.processed.chr1_22.QC.imputed.synovium_filter.snp.bed--Merged_ATAC-all_summits.100bp.top500.bed.pre_snplist.ld_info.snplist.bed.mutate.pred_out",
-        "../output_eQTac/OA_217.TOP.processed.chr1_22.QC.imputed.synovium_filter.snp.bed--Merged_ATAC-all_summits.100bp.top500.bed.pre_snplist.ld_info"
+        "../output_eQTac/test.geno.vcf.gz",
+        "../output_eQTac/test.geno.snplist.bed--test.pre.bed.pre_snplist.ld_info.snplist.bed.mutate.pred_out",
+        "../output_eQTac/test.geno.snplist.bed--test.pre.bed.pre_snplist.ld_info"
     )
