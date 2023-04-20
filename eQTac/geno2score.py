@@ -81,7 +81,7 @@ def geno2score(vcf_gz, pred_out, ld_info):
 
 if __name__ == "__main__":
     geno2score(
-        "../output_eQTac/test.geno.vcf.gz",
-        "../output_eQTac/test.geno.snplist.bed--test.pre.bed.pre_snplist.ld_info.snplist.bed.mutate.pred_out",
-        "../output_eQTac/test.geno.snplist.bed--test.pre.bed.pre_snplist.ld_info"
+        "../Utilities_pipeline/example.output_eQTac/test.geno.vcf.gz",
+        "../Utilities_pipeline/example.output_eQTac/test.geno.snplist.bed--test.pre.bed.pre_snplist.ld_info.snplist.bed.mutate.pred_out",
+        "../Utilities_pipeline/example.output_eQTac/test.geno.snplist.bed--test.pre.bed.pre_snplist.ld_info"
     )

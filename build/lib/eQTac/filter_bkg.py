@@ -70,5 +70,6 @@ def filter_bkg(negraw_bed, negraw_fa, exclude_bed):
 
 
 if __name__ == '__main__':
-    filter_bkg("../output_eQTac/test.positive.negraw.bed", "../output_eQTac/test.positive.negraw.fa",
-               "../test_data/test.exclude.bed")
+    filter_bkg("../Utilities_pipeline/example.output_eQTac/test.positive.negraw.bed", 
+               "../Utilities_pipeline/example.output_eQTac/test.positive.negraw.fa",
+               "../Utilities_pipeline/test_data/test.exclude.bed")

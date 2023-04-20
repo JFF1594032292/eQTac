@@ -46,7 +46,7 @@ def control_FDR(PRE_scorefile, permute_file, output_file):
 
 if __name__ == "__main__":
     control_FDR(
-        "../output_eQTac/test.geno.vcf.gz.PRE_score.eQTac_result",
-        "../output_eQTac/test.geno.vcf.gz.PRE_score.eQTac_result.permutation_plist",
-        "../output_eQTac/test.geno.vcf.gz.PRE_score.eQTac_result.FDR.txt"
+        "../Utilities_pipeline/example.output_eQTac/test.geno.vcf.gz.PRE_score.eQTac_result",
+        "../Utilities_pipeline/example.output_eQTac/test.geno.vcf.gz.PRE_score.eQTac_result.permutation_plist",
+        "../Utilities_pipeline/example.output_eQTac/test.geno.vcf.gz.PRE_score.eQTac_result.FDR.txt"
     )

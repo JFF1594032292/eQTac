@@ -92,6 +92,6 @@ def eQTac_correlation(PRE_scorefile, exp_file, result_file):
 
 
 if __name__ == "__main__":
-    eQTac_correlation("../output_eQTac/test.geno.vcf.gz.PRE_score",
-                      "../test_data/test.exp_residual",
-                      "../output_eQTac/test.geno.vcf.gz.PRE_score.eQTac_result")
+    eQTac_correlation("../Utilities_pipeline/example.output_eQTac/test.geno.vcf.gz.PRE_score",
+                      "../Utilities_pipeline/test_data/test.exp_residual",
+                      "../Utilities_pipeline/example.output_eQTac/test.geno.vcf.gz.PRE_score.eQTac_result")

@@ -49,6 +49,6 @@ def eQTac_permutation(PRE_scorefile, exp_file, permute_count, result_file):
 
 if __name__ == "__main__":
     eQTac_permutation(
-        "../output_eQTac/test.geno.vcf.gz.PRE_scoree",
-        "../test_data/test.exp_residual", 100,
-        "../output_eQTac/test.geno.vcf.gz.PRE_score.eQTac_result.permutation_plist")
+        "../Utilities_pipeline/example.output_eQTac/test.geno.vcf.gz.PRE_scoree",
+        "../Utilities_pipeline/test_data/test.exp_residual", 100,
+        "../Utilities_pipeline/example.output_eQTac/test.geno.vcf.gz.PRE_score.eQTac_result.permutation_plist")

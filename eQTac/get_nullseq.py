@@ -62,4 +62,4 @@ def get_nullseq(pos_bed_path, out_folder):
 
 
 if __name__ == '__main__':
-    get_nullseq("../test_data/test.positive.bed", ".")
+    get_nullseq("../Utilities_pipeline/test_data/test.positive.bed", ".")
