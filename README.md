@@ -118,4 +118,4 @@ Then use the **part-level** pattern to debug parameters. (e.g. training a best p
 
 If you are familiar with this pipeline, you can directly use the `function-level` pattern to construct your own pipeline.
 ## Notes
-1. The test results is very volatile, because of the samll size of test dataset (only ~6MB length of sequences). The results will be stable with tens of thousands or more peaks used positive set.
+1. The test result is very volatile, because of the small size of test dataset (only ~6MB length of sequences). The results will be stable with tens of thousands or more peaks used as positive set.
