@@ -116,6 +116,6 @@ We recomend to use the **pipeline-level** pattern at first to make sure that all
 
 Then use the **part-level** pattern to debug parameters. (e.g. training a best performance model). The first step is the most time-consuming step, we recomended to use the part-level pattern to save the SVM model `xxx.svmmodel.3_10_6_0.01.model.txt`.
 
-If you are familiar with this pipeline, you can directly use the `function-level` pattern to construct your own pipeline.
+If you are familiar with this pipeline, you can directly use the **function-level** pattern to construct your own pipeline.
 ## Notes
 1. The test result is very volatile, because of the small size of test dataset (only ~6MB length of sequences). The results will be stable with tens of thousands or more peaks used as positive set.
