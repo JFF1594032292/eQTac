@@ -34,7 +34,7 @@ Then it will generate an `output_eQTac` folder, which contained results file `te
 ## Input data
 1. Data used in model training:
     1. **Positive sets in bed format.** It's usually the peak data from ATAC-seq or ChIP-seq, we recomended to trim peaks to the core region (e.g. summits $\pm$ 100bp). See `test_data/test.positive.bed`.
-    2. **Excluded sets in bed format.** It's usually the peak data from ATAC-seq or ChIP-seq, but with more relaxed thresholds (e.g. p=0.2). These region will be removed from genrated negative regions, in order to remove potential positive sequences from negative sets. See `test_data/test`.exclude.bed.
+    2. **Excluded sets in bed format.** It's usually the peak data from ATAC-seq or ChIP-seq, but with more relaxed thresholds (e.g. p=0.2). These region will be removed from generated negative regions, in order to remove potential positive sequences from negative sets. See `test_data/test`.exclude.bed.
     3. Fasta file with .fai index. Usually the human genome sequnce file in fasta format. See `test_data/test.hg19.chr17.fa`.
 2. Data used in eQTac calculation.
     1. **PRE.bed**. The candidate regions used to assess chromatin accessibility scores across different individuals and then calculate correlation with target genes. See `test_data/test.pre.bed`.
