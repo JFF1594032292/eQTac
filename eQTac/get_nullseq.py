@@ -57,7 +57,7 @@ def get_nullseq(pos_bed_path, out_folder, xfold):
 
     d = dict(pos_bed_newpath=pos_bed_newpath, pos_fa=pos_fa, negraw_bed=negraw_bed, negraw_fa=negraw_fa, xfold=xfold)
     robjects.r(
-        "library(gkmSVM);genNullSeqs('%(pos_bed_newpath)s',nMaxTrials=20,xfold='%(xfold)f',GC_match_tol=0.05,repeat_match_tol=0.05,length_match_tol=0.05,batchsize=500000,genomeVersion='hg19', outputPosFastaFN='%(pos_fa)s', outputBedFN='%(negraw_bed)s', outputNegFastaFN='%(negraw_fa)s')"
+        "library(gkmSVM);genNullSeqs('%(pos_bed_newpath)s',nMaxTrials=20,xfold=%(xfold)f,GC_match_tol=0.05,repeat_match_tol=0.05,length_match_tol=0.05,batchsize=500000,genomeVersion='hg19', outputPosFastaFN='%(pos_fa)s', outputBedFN='%(negraw_bed)s', outputNegFastaFN='%(negraw_fa)s')"
         % d)
     return pos_fa, pos_bed_newpath, negraw_fa, negraw_bed
 
