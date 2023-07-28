@@ -1,0 +1,28 @@
+PLINK v1.90b6.24 64-bit (6 Jun 2021)
+Options in effect:
+  --allow-no-sex
+  --bfile test_data/test.geno
+  --extract test_data/test.geno.snplist
+  --out output_eQTac/test.geno
+  --output-chr chr26
+  --recode vcf-iid bgz
+
+Hostname: mu02
+Working directory: /home/jiangfeng/project/OA-eQTL/6-eQTL_TF/ATAC_gkSVM_mergedATAC/2-eQTac_pipeline_gtex
+Start time: Tue Apr 18 22:05:37 2023
+
+Random number seed: 1681826737
+257407 MB RAM detected; reserving 128703 MB for main workspace.
+29 variants loaded from .bim file.
+34 people (0 males, 0 females, 34 ambiguous) loaded from .fam.
+Ambiguous sex IDs written to output_eQTac/test.geno.nosex .
+--extract: 29 variants remaining.
+Using up to 27 threads (change this with --threads).
+Before main variant filters, 34 founders and 0 nonfounders present.
+Calculating allele frequencies... done.
+Total genotyping rate is 0.989858.
+29 variants and 34 people pass filters and QC.
+Note: No phenotypes present.
+--recode vcf-iid bgz to output_eQTac/test.geno.vcf.gz ... done.
+
+End time: Tue Apr 18 22:05:37 2023

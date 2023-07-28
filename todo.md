@@ -1,0 +1,5 @@
+- [ ] Paramaters to chose the count of negative set
+- [ ] Paramaters to clean intermediate files
+- [ ] Set --snp_list default to all SNPs in genotype.bim file
+- [ ] Add covar parameters.
+- [ ] Cross validation for training different models
