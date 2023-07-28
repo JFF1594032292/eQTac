@@ -5,7 +5,11 @@ with open("README.md", "r") as f1:
 
 setuptools.setup(
     name="eQTac",
+<<<<<<< HEAD
     version="1.0.9",
+=======
+    version="1.0.8",
+>>>>>>> 4b8bfa95564736c3bf45c48056ea656cf880d680
     author="Jiang Feng",
     author_email="1594032292@qq.com",
     description="The eQTac method.",
@@ -25,4 +29,8 @@ setuptools.setup(
         'pysam >= 0.15.3',
         'rpy2 >= 3.5.11',
         'scipy >= 1.7.3'],
+<<<<<<< HEAD
 )
+=======
+)
+>>>>>>> 4b8bfa95564736c3bf45c48056ea656cf880d680
