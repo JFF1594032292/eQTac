@@ -3,11 +3,7 @@
 # File Name: Part-1-Train_model.py
 # Created on : 2022-12-26 13:39:41
 # Author: JFF
-<<<<<<< HEAD
 # Last Modified: 2023-07-28 10:28:00
-=======
-# Last Modified: 2022-12-26 13:39:43
->>>>>>> 4b8bfa95564736c3bf45c48056ea656cf880d680
 # Description:
 # Usage:
 # Input:
@@ -26,10 +22,7 @@ from eQTac.filter_bkg import filter_bkg
 # https://nibes.cn/blog/5845 showed line breaks in help text
 class CustomArgumentFormatter(ArgumentDefaultsHelpFormatter, RawTextHelpFormatter):
     """Formats argument help which maintains line length restrictions as well as appends default value if present."""
-<<<<<<< HEAD
 
-=======
->>>>>>> 4b8bfa95564736c3bf45c48056ea656cf880d680
     def _split_lines(self, text, width):
         text = super()._split_lines(text, width)
         new_text = []
@@ -51,12 +44,7 @@ class CustomArgumentFormatter(ArgumentDefaultsHelpFormatter, RawTextHelpFormatte
 #parser = argparse.ArgumentParser(description="Training SVM model to get weights for each kmers.")
 parser = ArgumentParser(
     formatter_class=CustomArgumentFormatter,
-<<<<<<< HEAD
     description="Training SVM model to get weights for each kmers.\nInput: positive bed file, exclude bed file\nOutput: xxx.svmmodel.{t}_{l}_{k}_{e}.model.txt.\nNote: Parameters after -o was from gkmtrain software."
-=======
-    description=
-    "Training SVM model to get weights for each kmers.\nInput: positive bed file, exclude bed file\nOutput: xxx.svmmodel.{t}_{l}_{k}_{e}.model.txt.\nNote: Parameters after -o was from gkmtrain software."
->>>>>>> 4b8bfa95564736c3bf45c48056ea656cf880d680
 )
 parser.add_argument('-p',
                     '--positive_bed',
@@ -75,10 +63,7 @@ parser.add_argument('-o',
                     type=str,
                     default="eQTac_train_outfolder",
                     required=False)
-<<<<<<< HEAD
 parser.add_argument('-f', '--xfold', help="Background fold.", type=float, default=2.5, required=False)
-=======
->>>>>>> 4b8bfa95564736c3bf45c48056ea656cf880d680
 parser.add_argument(
     '-t',
     required=False,
@@ -100,12 +85,7 @@ parser.add_argument('-M',
 parser.add_argument(
     '-H',
     required=False,
-<<<<<<< HEAD
     help="set the half-life parameter (H) that is the distance (D) required\nto fall to half of its initial value in the exponential decay\nfunction for wgkm-kernels. -t 4 or 5 only ",
-=======
-    help=
-    "set the half-life parameter (H) that is the distance (D) required\nto fall to half of its initial value in the exponential decay\nfunction for wgkm-kernels. -t 4 or 5 only ",
->>>>>>> 4b8bfa95564736c3bf45c48056ea656cf880d680
     default=50.0,
     type=float)
 parser.add_argument('-c', required=False, help="set the regularization parameter SVM-C ", default=1.0, type=float)
@@ -122,12 +102,7 @@ parser.add_argument('-r', required=False, help="set random seed for shuffling in
 parser.add_argument(
     '-v',
     required=False,
-<<<<<<< HEAD
     help="set the level of verbosity (default: 2)\n0 -- error msgs only (ERROR)\n1 -- warning msgs (WARN)\n2 -- progress msgs at coarse-grained level (INFO)\n3 -- progress msgs at fine-grained level (DEBUG)\n4 -- progress msgs at finer-grained level (TRACE)",
-=======
-    help=
-    "set the level of verbosity (default: 2)\n0 -- error msgs only (ERROR)\n1 -- warning msgs (WARN)\n2 -- progress msgs at coarse-grained level (INFO)\n3 -- progress msgs at fine-grained level (DEBUG)\n4 -- progress msgs at finer-grained level (TRACE)",
->>>>>>> 4b8bfa95564736c3bf45c48056ea656cf880d680
     default="2",
     type=str,
     choices=["0", "1", "2", "3", "4"])
@@ -142,10 +117,7 @@ args = parser.parse_args()
 pos_bed_path = args.positive_bed
 exclude_bed = args.exclude_bed
 outfolder = args.outfolder
-<<<<<<< HEAD
 f = args.f
-=======
->>>>>>> 4b8bfa95564736c3bf45c48056ea656cf880d680
 t = args.t
 l = args.l
 k = args.k
@@ -165,7 +137,7 @@ T = args.T
 
 t0 = time.time()
 # Part1. Train model
-<<<<<<< HEAD
+
 # 1. Get negative datasets
 print("#---- EQTac STEP1: Get negative datasets START. ----#")
 
@@ -174,27 +146,13 @@ pos_fa, pos_bed, negraw_fa, negraw_bed = get_nullseq(pos_bed_path, outfolder, xf
 print("#---- EQTac STEP1: Get negative datasets FINISHED: %.6f. ----#" % (time.time() - t0))
 
 # 2. Fiter negative datasets
-=======
-## 1. Get negative datasets
-print("#---- EQTac STEP1: Get negative datasets START. ----#")
-
-pos_fa, pos_bed, negraw_fa, negraw_bed = get_nullseq(pos_bed_path, outfolder)
-
-print("#---- EQTac STEP1: Get negative datasets FINISHED: %.6f. ----#" % (time.time() - t0))
-
-## 2. Fiter negative datasets
->>>>>>> 4b8bfa95564736c3bf45c48056ea656cf880d680
 print("---- EQTac STEP2: Fiter negative datasets START. ----#")
 
 neg_fa, neg_bed = filter_bkg(negraw_bed, negraw_fa, exclude_bed)
 
 print("#---- EQTac STEP2: Fiter negative datasets FINISHED: %.6f. ----#" % (time.time() - t0))
 
-<<<<<<< HEAD
 # 3. Train model
-=======
-## 3. Train model
->>>>>>> 4b8bfa95564736c3bf45c48056ea656cf880d680
 print("#---- EQTac STEP3: Train model START. ----#")
 
 out_model = re.sub("\.bed$", "", pos_bed) + f".svmmodel.{t}_{l}_{k}_{e}"
