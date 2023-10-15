@@ -13,7 +13,7 @@ python Part-1-Train_model.py \
 	-p test_data/test.positive.bed \
 	-ex test_data/test.exclude.bed \
 	-o output_eQTac_part \
-	-t 3 -l 10 -k 6 -c 10 -g 2 -e 0.01
+	-t 3 -l 10 -k 6 -c 10 -g 2 -e 0.01 -f 2.5
 
 python Part-2-Generate_PRE_fa.py \
 	-pre test_data/test.pre.bed \

@@ -3,7 +3,7 @@
 # File Name: Part-3-Predict_PRE_score.py
 # Created on : 2022-12-26 13:56:46
 # Author: JFF
-# Last Modified: 2022-12-26 13:56:47
+# Last Modified: 2023-09-24 22:07:53
 # Description:
 # Usage:
 # Input:
@@ -21,6 +21,7 @@ from eQTac.geno2score import geno2score
 # https://nibes.cn/blog/5845 showed line breaks in help text
 class CustomArgumentFormatter(ArgumentDefaultsHelpFormatter, RawTextHelpFormatter):
     """Formats argument help which maintains line length restrictions as well as appends default value if present."""
+
     def _split_lines(self, text, width):
         text = super()._split_lines(text, width)
         new_text = []
@@ -42,8 +43,7 @@ class CustomArgumentFormatter(ArgumentDefaultsHelpFormatter, RawTextHelpFormatte
 #parser = argparse.ArgumentParser(description="A pipeline for calculating eQTac.")
 parser = ArgumentParser(
     formatter_class=CustomArgumentFormatter,
-    description=
-    "Predcit PRE score for each individual.\nInput: plink genotype prefix (to estimate PRE score), svm model from Part1, SNP list file from Part2 (xxx.pre_snplist), mutate fasta file from Part2, ld info file from Part2.\nOutput: PRE score file (xxx.PRE_score)"
+    description="Predcit PRE score for each individual.\nInput: plink genotype prefix (to estimate PRE score), svm model from Part1, SNP list file from Part2 (xxx.pre_snplist), mutate fasta file from Part2, ld info file from Part2.\nOutput: PRE score file (xxx.PRE_score)"
 )
 parser.add_argument('-m', '--model', help="SVM model from Part1. (xxx.svmmodel.{t}_{l}_{k}_{e}.model.txt)", type=str, required=True)
 parser.add_argument('-l', '--ld_info', help="PRE ld infomation file. (xxx.ld_info)", type=str, required=True)
@@ -58,6 +58,7 @@ parser.add_argument('-snp',
                     help="SNP list file used in eQTac analysis. Note: only single nucleotide mutations.",
                     type=str,
                     required=True)
+parser.add_argument('-n', '--normalize', help="If normalized PRE score to mean=0, std=1", default=True, type=bool, required=False)
 parser.add_argument('-T',
                     required=False,
                     help="set the number of threads for parallel calculation, 1, 4, or 16\n",
@@ -77,15 +78,16 @@ mutate_fa = args.mutate_fa
 snp_list = args.snp_list
 ld_info = args.ld_info
 geno_prefix = args.geno_prefix
+normalize = args.normalize
 outfolder = args.outfolder
 T = args.T
 
 t0 = time.time()
-#make dir
+# make dir
 if not os.path.exists(outfolder):
     os.mkdir(outfolder)
 # Part3. Predict PRE fasta score for individuals
-## 6.Predict svm weights for each SNPs
+# 6.Predict svm weights for each SNPs
 print("#---- EQTac STEP6: Predict svm weights START. ----#")
 
 pred_out = outfolder + "/" + re.sub("\.fa$", "", os.path.basename(mutate_fa)) + ".pred_out"
@@ -93,7 +95,7 @@ os.system(f"gkmpredict {mutate_fa} {model} {pred_out} -T {T}")
 
 print("#---- EQTac STEP6: Predict svm weights FINISHED: %.6f. ----#" % (time.time() - t0))
 
-## 7. Calculate scores for each individuals in each PRE
+# 7. Calculate scores for each individuals in each PRE
 print("#---- EQTac STEP7: Calculate scores for each individuals in each PRE START. ----#")
 
 geno_prefix_name = os.path.basename(geno_prefix)
@@ -101,6 +103,6 @@ if not os.path.exists(outfolder + "/" + geno_prefix_name + ".vcf.gz"):
     os.system(
         f"plink --allow-no-sex --bfile {geno_prefix} --extract {snp_list} --recode vcf-iid bgz --output-chr chr26 --out {outfolder}/{geno_prefix_name} && tabix -p vcf {outfolder}/{geno_prefix_name}.vcf.gz"
     )
-PRE_scorefile = geno2score(f"{outfolder}/{geno_prefix_name}.vcf.gz", pred_out, ld_info)
+PRE_scorefile = geno2score(f"{outfolder}/{geno_prefix_name}.vcf.gz", pred_out, ld_info, normalize)
 
 print("#---- EQTac STEP7: Calculate scores for each individuals in each PRE FINISHED: %.6f. ----#" % (time.time() - t0))

@@ -3,7 +3,7 @@
 # File Name: get_nullseq.py
 # Created on : 2022-12-17 16:06:59
 # Author: JFF
-# Last Modified: 2023-07-28 10:24:14
+# Last Modified: 2023-07-28 11:49:29
 # Description:
 # Usage:
 # Input:
@@ -14,6 +14,7 @@ import sys
 import re
 import rpy2.robjects as robjects
 from shutil import copyfile
+
 
 def get_nullseq(pos_bed_path, out_folder, xfold):
     """

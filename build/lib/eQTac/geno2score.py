@@ -16,7 +16,7 @@ import numpy as np
 import gzip
 
 
-def geno2score(vcf_gz, pred_out, ld_info):
+def geno2score(vcf_gz, pred_out, ld_info,normlize=True):
     PRE_scorefile = vcf_gz + ".PRE_score"
     # 增强子上的SNP
     d_pre = {}
@@ -58,7 +58,7 @@ def geno2score(vcf_gz, pred_out, ld_info):
                                 score = "NA"
                                 miss_snp_set.add(snp)  # 有缺失值的SNP
                             else:  # 基因型不缺失，计算得分
-                                score = d_score[snp][alleles[0]] + d_score[snp][alleles[1]]
+                                score = d_score[snp][alleles[0]] + d_score[snp][alleles[1]] # 两个型得分求和
                             d_geno.setdefault(snp, {})[header[j]] = score  # snp:{OA-1:score,}
     # 填补缺失值（人群中的该SNP得分的均值）
     for snp in miss_snp_set:
@@ -73,7 +73,12 @@ def geno2score(vcf_gz, pred_out, ld_info):
             ch, start, end = enhancer.split("_")
             snp_set = [snp for snp in d_pre[enhancer] if snp in d_geno]
             snp_count = len(snp_set)
-            score_list = ["%.6g" % sum([d_geno[snp][sample] for snp in snp_set]) for sample in header]
+            score_list = [sum([d_geno[snp][sample] for snp in snp_set]) for sample in header]
+            if normlize:
+                score_list_mean=np.mean(score_list)
+                score_list_std=np.std(score_list)
+                score_list=(np.array(score_list)-score_list_mean)/score_list_std
+            score_list = ["%.6g" % i for i in score_list]
             snps = ",".join(snp_set)
             ff.write("\t".join([ch, start, end, enhancer, "%d" % snp_count, snps] + score_list) + "\n")
     return PRE_scorefile

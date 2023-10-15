@@ -167,7 +167,7 @@ t0 = time.time()
 # 1. Get negative datasets
 print("#---- EQTac STEP1: Get negative datasets START. ----#", flush=True)
 
-pos_fa, pos_bed, negraw_fa, negraw_bed = get_nullseq(pos_bed_path, outfolder)
+pos_fa, pos_bed, negraw_fa, negraw_bed = get_nullseq(pos_bed_path, outfolder, xfold=2.5)
 
 print("#---- EQTac STEP1: Get negative datasets FINISHED: %.6f. ----#" % (time.time() - t0), flush=True)
 

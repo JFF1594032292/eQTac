@@ -19,4 +19,4 @@ python Part-All-eQTac_pipeline.py \
 	-exp test_data/test.exp_residual \
 	-n 100 \
 	-o output_eQTac \
-	-t 3 -l 10 -k 6 -c 10 -g 2 -e 0.01 
+	-t 3 -l 10 -k 6 -c 10 -g 2 -e 0.01 -f 2.5
