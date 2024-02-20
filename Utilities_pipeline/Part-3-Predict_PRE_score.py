@@ -3,7 +3,7 @@
 # File Name: Part-3-Predict_PRE_score.py
 # Created on : 2022-12-26 13:56:46
 # Author: JFF
-# Last Modified: 2023-09-24 22:07:53
+# Last Modified: 2024-02-20 14:01:31
 # Description:
 # Usage:
 # Input:
@@ -11,6 +11,7 @@
 #########################################################################
 import os
 import sys
+# sys.path.insert(0, ".")
 import re
 import time
 import textwrap
@@ -59,6 +60,10 @@ parser.add_argument('-snp',
                     type=str,
                     required=True)
 parser.add_argument('-n', '--normalize', help="If normalized PRE score to mean=0, std=1", default=True, type=bool, required=False)
+parser.add_argument('-r2', '--r2_max', help="Maximum ld between PRE SNPs",
+                    type=float, required=False, default=0.3)
+parser.add_argument('-d', '--distance_min',
+                    help="Minimum distance bewtween PRE SNPs", type=int, required=False, default=10)
 parser.add_argument('-T',
                     required=False,
                     help="set the number of threads for parallel calculation, 1, 4, or 16\n",
@@ -79,6 +84,8 @@ snp_list = args.snp_list
 ld_info = args.ld_info
 geno_prefix = args.geno_prefix
 normalize = args.normalize
+r2_max = args.r2_max
+distance_min = args.distance_min
 outfolder = args.outfolder
 T = args.T
 
@@ -103,6 +110,6 @@ if not os.path.exists(outfolder + "/" + geno_prefix_name + ".vcf.gz"):
     os.system(
         f"plink --allow-no-sex --bfile {geno_prefix} --extract {snp_list} --recode vcf-iid bgz --output-chr chr26 --out {outfolder}/{geno_prefix_name} && tabix -p vcf {outfolder}/{geno_prefix_name}.vcf.gz"
     )
-PRE_scorefile = geno2score(f"{outfolder}/{geno_prefix_name}.vcf.gz", pred_out, ld_info, normalize)
+PRE_scorefile = geno2score(f"{outfolder}/{geno_prefix_name}.vcf.gz", pred_out, ld_info, normalize, ld_max=r2_max, distance_min=distance_min)
 
 print("#---- EQTac STEP7: Calculate scores for each individuals in each PRE FINISHED: %.6f. ----#" % (time.time() - t0))

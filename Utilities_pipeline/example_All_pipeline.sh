@@ -3,7 +3,7 @@ set -eo pipefail
 # File Name: example_All_pipeline.sh
 # Created on: 2022-12-19 22:22:33
 # Author: JFF
-# Last Modified: 2023-04-18 17:44:57
+# Last Modified: 2024-02-20 15:03:11
 # Description: 
 # Usage: 
 # Input: 
@@ -19,4 +19,4 @@ python Part-All-eQTac_pipeline.py \
 	-exp test_data/test.exp_residual \
 	-n 100 \
 	-o output_eQTac \
-	-t 3 -l 10 -k 6 -c 10 -g 2 -e 0.01 -f 2.5
+	-t 3 -l 10 -k 6 -c 10 -g 2 -e 0.01 

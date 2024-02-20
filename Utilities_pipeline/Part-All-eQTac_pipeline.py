@@ -3,7 +3,7 @@
 # File Name: All-eQTac_pipeline.py
 # Created on : 2022-12-17 11:56:36
 # Author: JFF
-# Last Modified: 2023-04-18 17:43:28
+# Last Modified: 2024-02-20 14:46:13
 # Description:
 # Usage:
 # Input:
@@ -79,6 +79,11 @@ parser.add_argument('-snp',
                     required=True)
 parser.add_argument('-fa', '--fasta', help="Genome fasta file. Must with .fa.fai (e.g. xxx.fa & xxx.fa.fai)", type=str, required=True)
 parser.add_argument('-n', '--n_permutation', help="Permutation counts.", type=int, required=True)
+parser.add_argument('-norm', '--normalize', help="If normalized PRE score to mean=0, std=1", default=True, type=bool, required=False)
+parser.add_argument('-r2', '--r2_max', help="Maximum ld between PRE SNPs",
+                            type = float, required = False, default = 0.3)
+parser.add_argument('-dis', '--distance_min',
+                            help="Minimum distance bewtween PRE SNPs", type=int, required=False, default=10)
 parser.add_argument('-exp', '--expression_file', help="Gene expression file", type=str, required=True)
 parser.add_argument('-o',
                     '--outfolder',
@@ -144,6 +149,9 @@ snp_list = args.snp_list
 fasta = args.fasta
 exp_file = args.expression_file
 n_permutation = args.n_permutation
+normalize = args.normalize
+r2_max = args.r2_max
+distance_min = args.distance_min
 outfolder = args.outfolder
 t = args.t
 l = args.l
@@ -193,7 +201,7 @@ print("#---- EQTac STEP3: Train model FINISHED: %.6f. ----#" % (time.time() - t0
 print("#---- EQTac STEP4: Generate PRE regions START. ----#", flush=True)
 
 d_snp = generate_snp_dict(geno_prefix + ".bim")
-ld_info = generate_PRE(geno_prefix, pre_bed, snp_list, d_snp, outfolder)
+ld_info = generate_PRE(geno_prefix, pre_bed, snp_list, d_snp, outfolder, ld_max=r2_max, distance_min=distance_min)
 
 print("#---- EQTac STEP4: Generate PRE regions FINISHED: %.6f. ----#" % (time.time() - t0), flush=True)
 
@@ -221,7 +229,7 @@ if not os.path.exists(outfolder + "/" + geno_prefix_name + ".vcf.gz"):
     os.system(
         f"plink --allow-no-sex --bfile {geno_prefix} --extract {snp_list} --recode vcf-iid bgz --output-chr chr26 --out {outfolder}/{geno_prefix_name} && tabix -p vcf {outfolder}/{geno_prefix_name}.vcf.gz"
     )
-PRE_scorefile = geno2score(f"{outfolder}/{geno_prefix_name}.vcf.gz", pred_out, ld_info)
+PRE_scorefile = geno2score(f"{outfolder}/{geno_prefix_name}.vcf.gz", pred_out, ld_info, normalize, ld_max=r2_max, distance_min=distance_min)
 
 print("#---- EQTac STEP7: Calculate scores for each individuals in each PRE FINISHED: %.6f. ----#" % (time.time() - t0), flush=True)
 

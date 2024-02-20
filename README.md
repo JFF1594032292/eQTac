@@ -3,21 +3,22 @@ EQTac is a method to predict the potential regulatory elements (PREs) and their 
 ## Schematic 
 ![](./imgs/Schematic.png)
 ## Dependence
+python == 3.8.3
 ### Python packages
 ```
-numpy >= 1.21.6
-pandas >= 1.2.3
-pybedtools >= 0.8.1
-pysam >= 0.15.3
-rpy2 >= 3.5.11
-scipy >= 1.7.3
+numpy == 1.22.4
+pandas == 1.4.3
+pybedtools == 0.8.2
+pysam == 0.16.0.1
+rpy2 == 3.5.11
+scipy == 1.8.1
 ```
 ### Other software (need manual installation)
 ```
-plink >= v1.90b6.24 (not plink2, plink should in $PATH)
-bedtools >= v2.30.0 (bedtools should in $PATH)
-R >= 3.6.1
-    r-gkmSVM >= 0.8.0
+plink == v1.90b6.24 (not plink2, plink should in $PATH)
+bedtools == v2.30.0 (bedtools should in $PATH)
+R == 3.6.1
+    r-gkmSVM == 0.8.0
 ```
 ## Installation & test example
 ```

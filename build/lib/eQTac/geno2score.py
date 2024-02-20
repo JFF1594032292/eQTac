@@ -3,7 +3,7 @@
 # File Name: geno2score.py
 # Created on : 2022-12-19 20:30:37
 # Author: JFF
-# Last Modified: 2022-12-19 20:30:38
+# Last Modified: 2024-02-20 13:56:58
 # Description:
 # Usage:
 # Input:
@@ -16,7 +16,7 @@ import numpy as np
 import gzip
 
 
-def geno2score(vcf_gz, pred_out, ld_info,normlize=True):
+def geno2score(vcf_gz, pred_out, ld_info,normlize=True,ld_max=0.3,distance_min=10):
     PRE_scorefile = vcf_gz + ".PRE_score"
     # 增强子上的SNP
     d_pre = {}
@@ -24,7 +24,7 @@ def geno2score(vcf_gz, pred_out, ld_info,normlize=True):
         next(f1)
         for i in f1:
             i = i.strip().split("\t")
-            if float(i[6]) < 0.3 and int(i[9]) > 10:  # enhancer上SNP之间最小的ld需要<0.3，SNP之间最小距离大于10bp
+            if float(i[6]) <= ld_max and int(i[9]) > distance_min:  # enhancer上SNP之间最小的ld需要<0.3，SNP之间最小距离大于10bp
                 enhancer = "_".join(i[:3])
                 snp_set = i[11].split(",")
                 d_pre[enhancer] = snp_set  # enhancer:set([snp,snp])

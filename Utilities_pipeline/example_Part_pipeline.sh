@@ -3,7 +3,7 @@ set -eo pipefail
 # File Name: example_Part_pipeline.sh
 # Created on: 2022-12-26 13:47:05
 # Author: JFF
-# Last Modified: 2023-04-18 17:45:08
+# Last Modified: 2024-02-20 14:21:52
 # Description: 
 # Usage: 
 # Input: 
@@ -34,5 +34,5 @@ python Part-3-Predict_PRE_score.py \
 python Part-4-Calculate_eQTac_correlation.py \
 	-pre output_eQTac_part/test.geno.vcf.gz.PRE_score \
 	-exp test_data/test.exp_residual \
-	-n 50 \
+	-n 20 \
 	-o output_eQTac_part
