@@ -5,7 +5,7 @@ with open("README.md", "r") as f1:
 
 setuptools.setup(
     name="eQTac",
-    version="1.0.16",
+    version="1.0.17",
     author="Jiang Feng",
     author_email="1594032292@qq.com",
     description="The eQTac method.",
@@ -17,7 +17,7 @@ setuptools.setup(
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: BSD License",
     ],
-    python_requires='>=3.8',
+    python_requires='==3.8',
     install_requires=[
         'numpy == 1.22.4',
         'pandas == 1.4.3',

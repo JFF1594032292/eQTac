@@ -3,11 +3,11 @@ EQTac is a method to predict the potential regulatory elements (PREs) and their 
 ## Schematic 
 ![](./imgs/Schematic.png)
 ## Dependence
+python == 3.8
 Conda enviroment is recommended:
 ```
-conda create -n eqtac python=3.8 r-base=3.6 
+conda create -n eqtac python=3.8 r-base=4.3 bioconda::r-gkmsvm=0.83 bioconda::bioconductor-bsgenome.hsapiens.ucsc.hg19.masked=1.3.993
 ```
-python >= 3.8
 ### Python packages
 ```
 numpy == 1.22.4
@@ -21,8 +21,9 @@ scipy == 1.8.1
 ```
 plink == v1.90b6.24 (not plink2, plink should in $PATH)
 bedtools == v2.30.0 (bedtools should in $PATH)
-R = 3.6
-    r-gkmSVM == 0.8.0
+R = 4.3
+    gkmSVM == 0.8.3
+    bsgenome.hsapiens.ucsc.hg19.masked == 1.3.993
 ```
 ## Installation & test example
 ```
@@ -78,7 +79,7 @@ python Part-1-Train_model.py \
 	-p test_data/test.positive.bed \
 	-ex test_data/test.exclude.bed \
 	-o output_eQTac_part \
-	-t 3 -l 10 -k 6 -c 10 -g 2 -e 0.01
+	-t 3 -l 10 -k 6 -c 10 -g 2 -e 0.01 -f 2.5
 
 python Part-2-Generate_PRE_fa.py \
 	-pre test_data/test.pre.bed \
@@ -99,7 +100,7 @@ python Part-3-Predict_PRE_score.py \
 python Part-4-Calculate_eQTac_correlation.py \
 	-pre output_eQTac_part/test.geno.vcf.gz.PRE_score \
 	-exp test_data/test.exp_residual \
-	-n 50 \
+	-n 20 \
 	-o output_eQTac_part
 ```
 ### Function-level pattern

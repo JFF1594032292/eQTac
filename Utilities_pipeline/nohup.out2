@@ -1,0 +1,284 @@
+#---- EQTac STEP1: Get negative datasets START. ----#
+ importing sequences for output_eQTac_part/test.positive.pos.bed from BSgenome.Hsapiens.UCSC.hg19 
+ calculating repeat distributions
+ Trial 1 out of 20 
+ importing sequences
+ calculating repeat distributions
+ matching sequences
+912 sequences found so far,  6  remaining.
+ Trial 2 out of 20 
+ importing sequences
+ calculating repeat distributions
+ matching sequences
+912 sequences found so far,  6  remaining.
+ Trial 3 out of 20 
+ importing sequences
+ calculating repeat distributions
+ matching sequences
+913 sequences found so far,  5  remaining.
+ Trial 4 out of 20 
+ importing sequences
+ calculating repeat distributions
+ matching sequences
+913 sequences found so far,  5  remaining.
+ Trial 5 out of 20 
+ importing sequences
+ calculating repeat distributions
+ matching sequences
+914 sequences found so far,  4  remaining.
+ Trial 6 out of 20 
+ importing sequences
+ calculating repeat distributions
+ matching sequences
+916 sequences found so far,  2  remaining.
+ Trial 7 out of 20 
+ importing sequences
+ calculating repeat distributions
+ matching sequences
+916 sequences found so far,  2  remaining.
+ Trial 8 out of 20 
+ importing sequences
+ calculating repeat distributions
+ matching sequences
+916 sequences found so far,  2  remaining.
+ Trial 9 out of 20 
+ importing sequences
+ calculating repeat distributions
+ matching sequences
+916 sequences found so far,  2  remaining.
+ Trial 10 out of 20 
+ importing sequences
+ calculating repeat distributions
+ matching sequences
+916 sequences found so far,  2  remaining.
+ Trial 11 out of 20 
+ importing sequences
+ calculating repeat distributions
+ matching sequences
+916 sequences found so far,  2  remaining.
+ Trial 12 out of 20 
+ importing sequences
+ calculating repeat distributions
+ matching sequences
+917 sequences found so far,  1  remaining.
+ Trial 13 out of 20 
+ importing sequences
+ calculating repeat distributions
+ matching sequences
+917 sequences found so far,  1  remaining.
+ Trial 14 out of 20 
+ importing sequences
+ calculating repeat distributions
+ matching sequences
+917 sequences found so far,  1  remaining.
+ Trial 15 out of 20 
+ importing sequences
+ calculating repeat distributions
+ matching sequences
+917 sequences found so far,  1  remaining.
+ Trial 16 out of 20 
+ importing sequences
+ calculating repeat distributions
+ matching sequences
+918 sequences found so far,  0  remaining.
+INFO 2024-07-29 19:29:27: Arguments:
+INFO 2024-07-29 19:29:27:   posfile = output_eQTac_part/test.positive.pos.fa
+INFO 2024-07-29 19:29:27:   negfile = output_eQTac_part/test.positive.neg.fa
+INFO 2024-07-29 19:29:27:   outprefix = output_eQTac_part/test.positive.pos.svmmodel.3_10_6_0.01
+INFO 2024-07-29 19:29:27: Parameters:
+INFO 2024-07-29 19:29:27:   kernel-type = 3
+INFO 2024-07-29 19:29:27:   L = 10
+INFO 2024-07-29 19:29:27:   k = 6
+INFO 2024-07-29 19:29:27:   d = 3
+INFO 2024-07-29 19:29:27:   gamma = 2
+INFO 2024-07-29 19:29:27:   C = 10
+INFO 2024-07-29 19:29:27:   w = 1
+INFO 2024-07-29 19:29:27:   eps = 0.01
+INFO 2024-07-29 19:29:27:   shrinking = no
+INFO 2024-07-29 19:29:27:   reverse-complement feature = yes
+INFO 2024-07-29 19:29:27: reading 367 sequences from output_eQTac_part/test.positive.pos.fa
+INFO 2024-07-29 19:29:27: reading... 0
+INFO 2024-07-29 19:29:27: reading... done
+INFO 2024-07-29 19:29:27: reading 827 sequences from output_eQTac_part/test.positive.neg.fa
+INFO 2024-07-29 19:29:27: reading... 0
+INFO 2024-07-29 19:29:27: reading... done
+INFO 2024-07-29 19:29:27: begin SVM training
+INFO 2024-07-29 19:29:34: iter 100, max_viol=2.11337
+INFO 2024-07-29 19:29:42: iter 200, max_viol=2.0585
+INFO 2024-07-29 19:29:49: iter 300, max_viol=1.94243
+INFO 2024-07-29 19:29:55: iter 400, max_viol=1.07961
+INFO 2024-07-29 19:29:59: iter 500, max_viol=0.931816
+INFO 2024-07-29 19:30:02: iter 600, max_viol=0.799843
+INFO 2024-07-29 19:30:06: iter 700, max_viol=0.587763
+INFO 2024-07-29 19:30:07: iter 800, max_viol=0.339554
+INFO 2024-07-29 19:30:08: iter 900, max_viol=0.236266
+INFO 2024-07-29 19:30:08: iter 1000, max_viol=0.151337
+INFO 2024-07-29 19:30:08: iter 1100, max_viol=0.0991362
+INFO 2024-07-29 19:30:08: iter 1200, max_viol=0.0686168
+INFO 2024-07-29 19:30:08: iter 1300, max_viol=0.0417101
+INFO 2024-07-29 19:30:09: iter 1400, max_viol=0.0256579
+INFO 2024-07-29 19:30:09: iter 1500, max_viol=0.0168148
+INFO 2024-07-29 19:30:09: *
+INFO 2024-07-29 19:30:09: optimization finished, #iter = 1593
+INFO 2024-07-29 19:30:09: nu = 0.090124
+INFO 2024-07-29 19:30:09: obj = -538.112585, rho = 0.520120
+INFO 2024-07-29 19:30:09: nSV = 1138, nBSV = 0
+INFO 2024-07-29 19:30:09: Total nSV = 1138
+INFO 2024-07-29 19:30:09: save SVM model to output_eQTac_part/test.positive.pos.svmmodel.3_10_6_0.01.model.txt
+#---- EQTac STEP1: Get negative datasets FINISHED: 735.421706. ----#
+---- EQTac STEP2: Fiter negative datasets START. ----#
+#---- EQTac STEP2: Fiter negative datasets FINISHED: 735.587804. ----#
+#---- EQTac STEP3: Train model START. ----#
+#---- EQTac STEP3: Train model FINISHED: 777.598737. ----#
+R[write to console]: Warning messages:
+
+R[write to console]: 1: 
+R[write to console]: In res[i1] <- mtc1 :
+R[write to console]: 
+ 
+R[write to console]:  number of items to replace is not a multiple of replacement length
+
+R[write to console]: 2: 
+R[write to console]: In res[i1] <- mtc1 :
+R[write to console]: 
+ 
+R[write to console]:  number of items to replace is not a multiple of replacement length
+
+R[write to console]: 3: 
+R[write to console]: In res[i1] <- mtc1 :
+R[write to console]: 
+ 
+R[write to console]:  number of items to replace is not a multiple of replacement length
+
+R[write to console]: 4: 
+R[write to console]: In res[i1] <- mtc1 :
+R[write to console]: 
+ 
+R[write to console]:  number of items to replace is not a multiple of replacement length
+
+R[write to console]: 5: 
+R[write to console]: In res[i1] <- mtc1 :
+R[write to console]: 
+ 
+R[write to console]:  number of items to replace is not a multiple of replacement length
+
+R[write to console]: 6: 
+R[write to console]: In res[i1] <- mtc1 :
+R[write to console]: 
+ 
+R[write to console]:  number of items to replace is not a multiple of replacement length
+
+R[write to console]: 7: 
+R[write to console]: In res[i1] <- mtc1 :
+R[write to console]: 
+ 
+R[write to console]:  number of items to replace is not a multiple of replacement length
+
+R[write to console]: 8: 
+R[write to console]: In res[i1] <- mtc1 :
+R[write to console]: 
+ 
+R[write to console]:  number of items to replace is not a multiple of replacement length
+
+R[write to console]: 9: 
+R[write to console]: In res[i1] <- mtc1 :
+R[write to console]: 
+ 
+R[write to console]:  number of items to replace is not a multiple of replacement length
+
+R[write to console]: 10: 
+R[write to console]: In res[i1] <- mtc1 :
+R[write to console]: 
+ 
+R[write to console]:  number of items to replace is not a multiple of replacement length
+
+PLINK v1.90b6.24 64-bit (6 Jun 2021)           www.cog-genomics.org/plink/1.9/
+(C) 2005-2021 Shaun Purcell, Christopher Chang   GNU General Public License v3
+Logging to output_eQTac_part/test.geno.snplist.bed--test.pre.bed.pre_snplist.log.
+Options in effect:
+  --allow-no-sex
+  --bfile test_data/test.geno
+  --extract output_eQTac_part/test.geno.snplist.bed--test.pre.bed.pre_snplist
+  --ld-window 999999
+  --ld-window-kb 1
+  --ld-window-r2 0
+  --out output_eQTac_part/test.geno.snplist.bed--test.pre.bed.pre_snplist
+  --r2
+
+257571 MB RAM detected; reserving 128785 MB for main workspace.
+29 variants loaded from .bim file.
+34 people (0 males, 0 females, 34 ambiguous) loaded from .fam.
+Ambiguous sex IDs written to
+output_eQTac_part/test.geno.snplist.bed--test.pre.bed.pre_snplist.nosex .
+--extract: 28 variants remaining.
+Using up to 27 threads (change this with --threads).
+Before main variant filters, 34 founders and 0 nonfounders present.
+Calculating allele frequencies... 0%1%2%3%4%5%6%7%8%9%10%11%12%13%14%15%16%17%18%19%20%21%22%23%24%25%26%27%28%29%30%31%32%33%34%35%36%37%38%39%40%41%42%43%44%45%46%47%48%49%50%51%52%53%54%55%56%57%58%59%60%61%62%63%64%65%66%67%68%69%70%71%72%73%74%75%76%77%78%79%80%81%82%83%84%85%86%87%88%89%90%91%92%93%94%95%96%97%98%99% done.
+Total genotyping rate is 0.989496.
+28 variants and 34 people pass filters and QC.
+Note: No phenotypes present.
+--r2 to output_eQTac_part/test.geno.snplist.bed--test.pre.bed.pre_snplist.ld
+... 0% [processing]writing]             done.
+#---- EQTac STEP4: Generate PRE regions START. ----#
+#---- EQTac STEP4: Generate PRE regions FINISHED: 0.042871. ----#
+#---- EQTac STEP5: Generate mutated fasta file START. ----#
+#---- EQTac STEP5: Generate mutated fasta file FINISHED: 0.094854. ----#
+INFO 2024-07-29 19:30:11: load model output_eQTac_part/test.positive.pos.svmmodel.3_10_6_0.01.model.txt
+INFO 2024-07-29 19:30:11: reading 1138 SVs
+INFO 2024-07-29 19:30:11: write prediction result to output_eQTac_part/test.geno.snplist.bed--test.pre.bed.pre_snplist.ld_info.snplist.bed.mutate.pred_out
+INFO 2024-07-29 19:30:11: 56 scored
+PLINK v1.90b6.24 64-bit (6 Jun 2021)           www.cog-genomics.org/plink/1.9/
+(C) 2005-2021 Shaun Purcell, Christopher Chang   GNU General Public License v3
+Logging to output_eQTac_part/test.geno.log.
+Options in effect:
+  --allow-no-sex
+  --bfile test_data/test.geno
+  --extract output_eQTac_part/test.geno.snplist.bed--test.pre.bed.pre_snplist
+  --out output_eQTac_part/test.geno
+  --output-chr chr26
+  --recode vcf-iid bgz
+
+257571 MB RAM detected; reserving 128785 MB for main workspace.
+29 variants loaded from .bim file.
+34 people (0 males, 0 females, 34 ambiguous) loaded from .fam.
+Ambiguous sex IDs written to output_eQTac_part/test.geno.nosex .
+--extract: 28 variants remaining.
+Using up to 27 threads (change this with --threads).
+Before main variant filters, 34 founders and 0 nonfounders present.
+Calculating allele frequencies... 0%1%2%3%4%5%6%7%8%9%10%11%12%13%14%15%16%17%18%19%20%21%22%23%24%25%26%27%28%29%30%31%32%33%34%35%36%37%38%39%40%41%42%43%44%45%46%47%48%49%50%51%52%53%54%55%56%57%58%59%60%61%62%63%64%65%66%67%68%69%70%71%72%73%74%75%76%77%78%79%80%81%82%83%84%85%86%87%88%89%90%91%92%93%94%95%96%97%98%99% done.
+Total genotyping rate is 0.989496.
+28 variants and 34 people pass filters and QC.
+Note: No phenotypes present.
+--recode vcf-iid bgz to output_eQTac_part/test.geno.vcf.gz ... 0%1%2%3%4%5%6%7%8%9%10%11%12%13%14%15%16%17%18%19%20%21%22%23%24%25%26%27%28%29%30%31%32%33%34%35%36%37%38%39%40%41%42%43%44%45%46%47%48%49%50%51%52%53%54%55%56%57%58%59%60%61%62%63%64%65%66%67%68%69%70%71%72%73%74%75%76%77%78%79%80%81%82%83%84%85%86%87%88%89%90%91%92%93%94%95%96%97%98%99%done.
+#---- EQTac STEP6: Predict svm weights START. ----#
+#---- EQTac STEP6: Predict svm weights FINISHED: 0.523801. ----#
+#---- EQTac STEP7: Calculate scores for each individuals in each PRE START. ----#
+#---- EQTac STEP7: Calculate scores for each individuals in each PRE FINISHED: 0.570887. ----#
+#---- EQTac STEP8: Calculate eQTac correlation. ----#
+#---- EQTac STEP8: Calculate eQTac correlation: 0.041874. ----#
+#---- EQTac STEP9: Permutation P values. ----#
+Permutation 1 finished
+Permutation 2 finished
+Permutation 3 finished
+Permutation 4 finished
+Permutation 5 finished
+Permutation 6 finished
+Permutation 7 finished
+Permutation 8 finished
+Permutation 9 finished
+Permutation 10 finished
+Permutation 11 finished
+Permutation 12 finished
+Permutation 13 finished
+Permutation 14 finished
+Permutation 15 finished
+Permutation 16 finished
+Permutation 17 finished
+Permutation 18 finished
+Permutation 19 finished
+Permutation 20 finished
+#---- EQTac STEP9: Permutation P values: 0.151154. ----#
+#---- EQTac STEP10: Control FDR. ----#
+#---- EQTac STEP10: Control FDR: 0.158219. ----#
+
+#---- EQTac STEP ALL FINISHED: 0.158223. ----#
