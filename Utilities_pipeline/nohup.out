@@ -1,0 +1,22 @@
+R[write to console]: Error in (function (classes, fdef, mtable)  : 
+  unable to find an inherited method for function ‘seqnames’ for signature ‘"NULL"’
+
+#---- EQTac STEP1: Get negative datasets START. ----#
+Traceback (most recent call last):
+  File "Part-1-Train_model.py", line 144, in <module>
+    pos_fa, pos_bed, negraw_fa, negraw_bed = get_nullseq(pos_bed_path, outfolder, xfold=f)
+  File "/home/jiangfeng/software/miniconda3/envs/eqtac/lib/python3.8/site-packages/eQTac/get_nullseq.py", line 60, in get_nullseq
+    robjects.r(
+  File "/home/jiangfeng/software/miniconda3/envs/eqtac/lib/python3.8/site-packages/rpy2/robjects/__init__.py", line 459, in __call__
+    res = self.eval(p)
+  File "/home/jiangfeng/software/miniconda3/envs/eqtac/lib/python3.8/site-packages/rpy2/robjects/functions.py", line 208, in __call__
+    return (super(SignatureTranslatedFunction, self)
+  File "/home/jiangfeng/software/miniconda3/envs/eqtac/lib/python3.8/site-packages/rpy2/robjects/functions.py", line 131, in __call__
+    res = super(Function, self).__call__(*new_args, **new_kwargs)
+  File "/home/jiangfeng/software/miniconda3/envs/eqtac/lib/python3.8/site-packages/rpy2/rinterface_lib/conversion.py", line 45, in _
+    cdata = function(*args, **kwargs)
+  File "/home/jiangfeng/software/miniconda3/envs/eqtac/lib/python3.8/site-packages/rpy2/rinterface.py", line 817, in __call__
+    raise embedded.RRuntimeError(_rinterface._geterrmessage())
+rpy2.rinterface_lib.embedded.RRuntimeError: Error in (function (classes, fdef, mtable)  : 
+  unable to find an inherited method for function ‘seqnames’ for signature ‘"NULL"’
+
