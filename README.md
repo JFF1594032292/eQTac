@@ -21,6 +21,7 @@ scipy == 1.8.1
 ```
 plink == v1.90b6.24 (not plink2, plink should in $PATH)
 bedtools == v2.30.0 (bedtools should in $PATH)
+ls-gkm == 0.1.1 (gkmtrain and gkmpredict should in $PATH)
 R = 4.3
     gkmSVM == 0.8.3
     bsgenome.hsapiens.ucsc.hg19.masked == 1.3.993
