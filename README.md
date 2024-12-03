@@ -1,5 +1,6 @@
 # eQTac
 EQTac is a method to predict the potential regulatory elements (PREs) and their target genes, based on the eQTL datasets, the only additional data was ATAC-seq or ChIP-seq peak data. 
+Cite: Jiang, F., Hu, SY., Tian, W. et al. A landscape of gene expression regulation for synovium in arthritis. Nat Commun 15, 1409 (2024). https://doi.org/10.1038/s41467-024-45652-x
 ## Schematic 
 ![](./imgs/Schematic.png)
 ## Dependence
